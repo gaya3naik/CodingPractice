@@ -9,23 +9,21 @@ public class CheckForPairsInArray {
 
     static final int MAX_ARRAY_SIZE = 100000;
 
-
-
-    private void printPairs(int array[], int firstNum){
+    static void printPairs(int array[], int firstNum){
         boolean binaryMap[] = new boolean[MAX_ARRAY_SIZE];
         for( int i=0; i<array.length;i++){
             int secondNum = array[i]-firstNum;
             if(secondNum >=0 && binaryMap[secondNum]){
                 System.out.println("Pairs are ( " + array[i] + " , "+secondNum+")");
             }
-            binaryMap[array[i]-firstNum] = true;
+            binaryMap[array[i]] = true;
         }
     }
 
-    public static void main(String args){
-        int array[] = {12, 13, 4, 5, 2, 32};
-        int sum = 17;
-        CheckForPairsInArray checkForPairsInArray = new CheckForPairsInArray();
-        checkForPairsInArray.printPairs(array, sum);
+    public static void main (String[] args)
+    {
+        int array[] = {1, 4, 45, 6, 10, 8};
+        int firstNum = 16;
+        printPairs(array,  firstNum);
     }
 }
