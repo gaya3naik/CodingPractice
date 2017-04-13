@@ -2,6 +2,8 @@
  * Created by gnaik on 13/04/17.
  */
 // Takes O(n2) time for sorting and is not an efficient algorithm
+    // Takes each element and compares with remaining elements on right until mininum is found.
+    // When found, they swap to each other's positions
 public class SelectionSort {
 
     private void selectionSort(int array[]){
