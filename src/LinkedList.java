@@ -54,6 +54,11 @@ public class LinkedList {
         if(temp == null){
             return null;
         }
+        if (temp != null && temp.data == data)
+        {
+            head = temp.next;
+            return temp;
+        }
         while(temp != null && temp.data != data){
             previous = temp;
             temp = temp.next;
