@@ -69,4 +69,58 @@ public class LinkedList {
         previous.next = temp.next;
         return temp;
     }
+
+    // Delete a node from some position
+    private Node delete(int position) {
+        if(position <0 || head == null){
+            return null;
+        }
+        if(position == 0){
+            head = head.next;
+        }
+        Node tempNode= null;
+        for(int i=0; tempNode != null && i<position-1; i++){
+            tempNode = tempNode.next;
+        }
+        if(tempNode == null || tempNode.next == null){
+            return null;
+        }
+        Node next = tempNode.next.next;
+        Node deletingNode = tempNode.next;
+        tempNode.next = next;
+        return deletingNode;
+    }
+
+    private void insertFirst(int data){
+        if(head == null){
+            head = new Node(data);
+            return;
+        }
+        Node newHead = new Node(data);
+        newHead.next = head;
+        head = newHead;
+    }
+
+    private void inserAfter(Node previousNode, int data) {
+        if(previousNode == null){
+            System.out.print("Previous cannot be null");
+            return;
+        }
+        Node newNode = new Node(data);
+        newNode.next = previousNode.next;
+        previousNode.next = newNode;
+    }
+
+    private void insertLast(int data){
+        if(head == null){
+            head = new Node(data);
+            return;
+        }
+        Node tempNode = head;
+        while(tempNode.next != null){
+            tempNode = tempNode.next;
+        }
+        tempNode.next = new Node(data);
+        return;
+    }
 }
